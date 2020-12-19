@@ -1,0 +1,473 @@
+<div>
+    <mat-toolbar>
+      <div class="color">
+    <mat-toolbar-row>
+      <button mat-icon-button >
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+    
+      <h1 style="text-align: left;">Covid Tracker</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
+        <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
+        <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" >Logout</a>
+    
+    </div>
+    </mat-toolbar-row>
+    </div>
+    </mat-toolbar>
+    
+    <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+    
+        <a mat-list-item [routerLink]="'/'" routerLinkActive="active"> Selected Date </a>
+        <a mat-list-item [routerLink]="'/ncomp'" routerLinkActive="active">Covid News </a>
+        <a mat-list-item [routerLink]="'/healthcondition'" routerLinkActive="active">Health Status</a>
+    
+        <a mat-list-item [routerLink]="'/'"routerLinkActive="disable"> Logout </a>
+        
+    
+      </mat-nav-list>
+    </mat-sidenav>
+    </mat-sidenav-container>
+    
+    
+    <div class="same-row" style="width: 100%; border:3px solid #000">  
+      <div style="width:25%;float: left;padding: 20px; min-height: 80px;">
+      
+        <mat-card class="covid-card" style="width: fit-content;">  
+          <mat-card-header>  
+              <div mat-card-avatar>  
+                  <img src="https://www.countryflags.io/IN/shiny/32.png">  
+              </div>  
+              <mat-card-title>INDIA Country</mat-card-title>  
+              <mat-card-subtitle>Total Countries</mat-card-subtitle>  
+          </mat-card-header>  
+          <mat-card-content>  
+              <table>  
+                <tr>  
+                  <td>Total Confirmed</td>  
+                  <td>{{totalData?.confirmed | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Total Active</td>  
+                  <td>{{totalData?.active | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Total Recovered</td>  
+                  <td>{{totalData?.recovered | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Total Deaths</td>  
+                  <td>{{totalData?.deaths | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Newly Confirmed</td>  
+                  <td>{{totalData?.deltaconfirmed | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Newly Recovered</td>  
+                  <td>{{totalData?.deltarecovered | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Newly Deaths</td>  
+                  <td>{{totalData?.deltadeaths | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Migrated to Other</td>  
+                  <td>{{totalData?.migratedother | number}}</td>  
+                </tr>  
+                <tr>  
+                  <td>Last Updated Time</td>  
+                  <td>{{totalData?.lastupdatedtime}}</td>  
+                </tr>  
+              </table>  
+          </mat-card-content>  
+      </mat-card>  
+    </div>
+    
+    
+    <div style="width:55%;float: right;padding: 10px;">
+      <app-igraph> </app-igraph>
+    </div>
+    </div> 
+    
+    
+    
+    
+    
+    
+          
+      <div class="row" >  
+     
+          <div class="col-6">  
+            <!-- <h5><span class="badge badge-secondary">Select Any  State</span></h5>   -->
+            <button type="button" class="btn btn-primary">
+              Select Any STATE <span class="badge badge-light"></span>
+            </button>
+            <select name="selectedState" id="state" class="form-control" [(ngModel)]="selectedStateCode"  
+              (change)='onStateSelected()'>  
+              <option *ngFor="let data of allData" [value]="data.statecode">{{data.state}}</option>  
+            </select>  
+          </div>  
+      </div>
+      
+    
+      <mat-card style="width: fit-content;">
+          <mat-card-content>
+              
+              
+    <div *ngIf="selectedStateCode==undefined">  
+      <img src="../assets/corono.png" style="width: 40px;" />  
+      <p>Here it shows Selected State Covid-19 Deatils</p>
+    </div>  
+    
+    
+    <div class="parent">
+    
+    
+    
+    <div class="child1">
+    
+    
+    <div class="col-3" *ngIf="selectedStateCode!=undefined">  
+      <!-- <h5><span class="badge badge-secondary">{{stateData?.state}} Summary</span></h5>  
+      <button type="button" class="btn btn-primary">
+          {{stateData?.State}}Details <span class="badge badge-light"></span>
+        </button> -->
+        <span class="badge badge-primary"  style="font-size: 20px;">{{stateData?.state}} Deatils</span>
+    
+      <table >  
+        <tbody>  
+          <tr class="table-primary" style="font-weight: bold;">  
+            <td>Total Confirmed</td>  
+            <td>{{stateData?.confirmed | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Total Active</td>  
+            <td>{{stateData?.active | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Total Recovered</td>  
+            <td>{{stateData?.recovered | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Total Deaths</td>  
+            <td>{{stateData?.deaths | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Newly Confirmed</td>  
+            <td>{{stateData?.deltaconfirmed | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Newly Recovered</td>  
+            <td>{{stateData?.deltarecovered | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Newly Deaths</td>  
+            <td>{{stateData?.deltadeaths | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Migrated to Other</td>  
+            <td>{{stateData?.migratedother | number}}</td>  
+          </tr>  
+          <tr>  
+            <td>Last Updated Time</td>  
+            <td>{{stateData?.lastupdatedtime}}</td>  
+          </tr>  
+        </tbody>  
+      </table>  
+    </div>  
+       <!-- </mat-card-content>
+      </mat-card> -->
+    </div>
+    <div class="child2">
+    
+    
+      <mat-card style="width: fit-content">
+          <mat-card-content>
+              <div class="col-4" *ngIf="selectedStateCode!=undefined">  
+                  <img src="../assets/corono.png" style="width: 40px;" />  
+                  <p>Here it shows Selected District Covid-19 Deatils</p>
+                  <h5><span class="badge badge-primary"  style="font-size: 20px;">{{stateData?.state}} District Wise Covid-19 Details</span></h5>  
+                  <div>  
+                    <table class="table table-sm">  
+                      <thead>  
+                        <tr class="table-primary">  
+                          <th scope="col">District Name</th>  
+                          <th scope="col">Total Confirmed</th>  
+                        </tr>  
+                      </thead>  
+                      <tbody>  
+                        <tr *ngFor="let data of districtData?.districtData">  
+                          <td>{{data.name}}</td>  
+                          <td>{{data.confirmed | number}}</td>  
+                        </tr>  
+                      </tbody>  
+                    </table>  
+                  </div>  
+                
+                </div>  
+          </mat-card-content>
+      </mat-card>
+    </div>
+    </div>
+    
+    <!-- <button  class="btn btn-primary" class="badge badge-light" [routerLink]="'/date'">Compare Two Indian States</button> -->
+    
+     <button type="button" class="btn btn-primary" [routerLink]="'/date'">
+      Compare Two States of INDIA<span class="badge badge-light"  ></span>
+    </button> 
+    
+    
+    
+    <button style="color: blue; float: right;"   [routerLink]="'/dashboard'">Go Back</button>
+    <!-- <button type="button" class="btn btn-primary; float: right;"   [routerLink]="'/dashboard'">Go Back</button> -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--   
+    
+    
+     
+      <div class="same-row" style="width: 100%; border:3px solid #000">  
+            <mat-card class="covid-card" style="width: fit-content;">  
+                <mat-card-header>  
+                    <div mat-card-avatar>  
+                        <img src="https://www.countryflags.io/IN/shiny/32.png">  
+     
+                    </div>  
+                    <mat-card-title style="color: rgb(15, 119, 5);">INDIA Covid-19 Deatils</mat-card-title>  
+                    <mat-card-subtitle style="color: rgb(12, 143, 143);">Complete Deatils</mat-card-subtitle>  
+                </mat-card-header>  
+                <mat-card-content>
+                 
+                 <table>
+                    <tr class="table-primary" style="font-weight: bold;">  
+                        <td>Total Confirmed</td>  
+                        <td>{{totalData?.confirmed | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Total Active</td>  
+                        <td>{{totalData?.active | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Total Recovered</td>  
+                        <td>{{totalData?.recovered | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Total Deaths</td>  
+                        <td>{{totalData?.deaths | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Newly Confirmed</td>  
+                        <td>{{totalData?.deltaconfirmed | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Newly Recovered</td>  
+                        <td>{{totalData?.deltarecovered | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Newly Deaths</td>  
+                        <td>{{totalData?.deltadeaths | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Migrated to Other</td>  
+                        <td>{{totalData?.migratedother | number}}</td>  
+                      </tr>  
+                      <tr>  
+                        <td>Last Updated Time</td>  
+                        <td>{{totalData?.lastupdatedtime}}</td>  
+                      </tr>  
+                 </table>
+                </mat-card-content>
+            </mat-card>
+            <div style="width:55%;float: right;padding: 10px;">
+               <app-igraph></app-igraph>
+            </div>
+         
+    
+       
+            
+    
+    <!--    
+        <div class="row" >  
+       
+            <div class="col-6">  
+              <button type="button" class="btn btn-primary">
+                Select Any STATE <span class="badge badge-light"></span>
+              </button>
+              <select name="selectedState" id="state" class="form-control" [(ngModel)]="selectedStateCode"  
+                (change)='onStateSelected()'>  
+                <option *ngFor="let data of allData" [value]="data.statecode">{{data.state}}</option>  
+              </select>  
+            </div>  
+        </div>
+        
+        <mat-card style="width: fit-content;">
+            <mat-card-content>
+                
+                
+      <div *ngIf="selectedStateCode==undefined">  
+        <img src="../assets/corono.png" style="width: 40px;" />  
+        <p>Here it shows Selected State Covid-19 Deatils</p>
+      </div>  
+      <div class="col-3" *ngIf="selectedStateCode!=undefined">  
+      
+          <span class="badge badge-primary"  style="font-size: 20px;">{{stateData?.state}} Deatils</span>
+    
+        <table >  
+          <tbody>  
+            <tr class="table-primary" style="font-weight: bold;">  
+              <td>Total Confirmed</td>  
+              <td>{{stateData?.confirmed | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Total Active</td>  
+              <td>{{stateData?.active | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Total Recovered</td>  
+              <td>{{stateData?.recovered | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Total Deaths</td>  
+              <td>{{stateData?.deaths | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Newly Confirmed</td>  
+              <td>{{stateData?.deltaconfirmed | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Newly Recovered</td>  
+              <td>{{stateData?.deltarecovered | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Newly Deaths</td>  
+              <td>{{stateData?.deltadeaths | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Migrated to Other</td>  
+              <td>{{stateData?.migratedother | number}}</td>  
+            </tr>  
+            <tr>  
+              <td>Last Updated Time</td>  
+              <td>{{stateData?.lastupdatedtime}}</td>  
+            </tr>  
+          </tbody>  
+        </table>  
+      </div>  
+      
+            </mat-card-content>
+        </mat-card>
+    
+        <mat-card style="width: fit-content;">
+            <mat-card-content>
+                <div class="col-5" *ngIf="selectedStateCode!=undefined">  
+                    <img src="../assets/corono.png" style="width: 40px;" />  
+                    <p>Here it shows Selected District Covid-19 Deatils</p>
+                    <h5><span class="badge badge-primary"  style="font-size: 20px;">{{stateData?.state}} District Wise Covid-19 Details</span></h5>  
+                    <div>  
+                      <table class="table table-sm">  
+                        <thead>  
+                          <tr class="table-primary">  
+                            <th scope="col">District Name</th>  
+                            <th scope="col">Total Confirmed</th>  
+                          </tr>  
+                        </thead>  
+                        <tbody>  
+                          <tr *ngFor="let data of districtData?.districtData">  
+                            <td>{{data.name}}</td>  
+                            <td>{{data.confirmed | number}}</td>  
+                          </tr>  
+                        </tbody>  
+                      </table>  
+                    </div>  
+                  
+                  </div>  
+            </mat-card-content>
+        </mat-card>
+    </div> 
+    
+    <div style="width:65%;float: left;padding: 10px;">
+      <app-igraph></app-igraph>
+    </div>
+    
+    <button style="color: blue;"   [routerLink]="'/dashboard'">Go Back</button> -->
+    
+    
+    <!-- <div class="footer">
+      <div class="copyright">All Copyrights © reserved</div>
+      <section class="herounit-mask">
+        <a href="https://www.facebook.com/">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.twitter.com/">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.youtube.com/">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.skype.com/">
+          <i class="fab fa-skype"></i>
+        </a>
+        <a href="https://www.linkedin.com/">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </section>
+    </div> -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    

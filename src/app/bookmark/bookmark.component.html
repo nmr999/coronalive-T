@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+
+<mat-toolbar>
+  <div class="color">
+<mat-toolbar-row>
+  <button mat-icon-button >
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+  </button>
+
+  <h1 style="text-align: left;" >Covid Tracker</h1>
+  <span class="menu-spacer"></span>
+  <div>
+
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/dashboard'" routerLinkActive="active" > Home </a>
+
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" >Logout</a>
+
+</div>
+</mat-toolbar-row>
+</div>
+</mat-toolbar>
+
+<mat-sidenav-container class="side">
+<mat-sidenav #sidenav>
+  <mat-nav-list>
+
+    <a mat-list-item [routerLink]="'/ncomp'" routerLinkActive="active">Covid News </a>
+    <a mat-list-item [routerLink]="'/healthcondition'" routerLinkActive="active">Health Status</a>
+    <a mat-list-item [routerLink]="'/bookmark'" routerLinkActive="active"> Selected Date </a>
+    <a mat-list-item [routerLink]="'/'"routerLinkActive="disable"> Logout </a>
+    
+
+  </mat-nav-list>
+</mat-sidenav>
+
+
+
+
+
+
+
+
+<div>
+    <table id=bookm>
+        <th>Records in your  bookmark</th>
+        <tr>
+            <th>NewRecovered</th>
+            <th>TotalRecovered</th>
+            <th>NewConfirmed</th>
+            <th>TotalConfirmed</th>
+            <th>NewDeaths</th>
+            <th>TotalDeaths</th>
+        </tr>
+                <tr *ngFor="let y of book">
+                   <td> {{y.new_Recovered}} </td>
+                   <td> {{y.total_Recovered}}</td>
+                   <td> {{y.new_Confirmed }}</td>
+                   <td> {{y.total_Confirmed}}</td>
+                   <td>{{y.new_Deaths}} </td>
+                   <td> {{y.total_Deaths}}</td>
+                    <!-- <i button type="button" class="fa fa-trash" (click)="removemeal()"></i> -->
+                    <!-- <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span>
+                      </button> -->
+                </tr>
+    </table>
+    <div>

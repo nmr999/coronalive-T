@@ -1,0 +1,309 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+
+<mat-toolbar>
+  <div class="color">
+<mat-toolbar-row>
+  <button mat-icon-button >
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+  </button>
+
+  <h1 style="text-align: left;" >Covid Tracker</h1>
+  <span class="menu-spacer"></span>
+  <div>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" >Logout</a>
+
+</div>
+</mat-toolbar-row>
+</div>
+</mat-toolbar>
+
+<mat-sidenav-container class="side">
+<mat-sidenav #sidenav>
+  <mat-nav-list>
+
+    <a mat-list-item [routerLink]="'/ncomp'" routerLinkActive="active">Covid News </a>
+    <a mat-list-item [routerLink]="'/healthcondition'" routerLinkActive="active">Health Status</a>
+    <a mat-list-item [routerLink]="'/bookmark'" routerLinkActive="active"> Selected Date </a>
+    <a mat-list-item [routerLink]="'/'"routerLinkActive="disable"> Logout </a>
+    
+
+  </mat-nav-list>
+</mat-sidenav>
+
+<mat-sidenav-content>
+  <div style="height: 88vh; ">
+    
+
+    <div class="date" style="font-weight: bold; color: #000;" >  
+        Date :- {{currentDate}}
+       </div>
+        
+       <h1 style="font-size: 30px; color: darkgoldenrod;"> Overview</h1>
+    <h1>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.<br>
+
+        In early 2020, after a December 2019 outbreak in China, the World Health Organization identified SARS-CoV-2 as a new type of coronavirus.<br>
+
+        
+        The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette. </h1><br>
+        <h1 style="font-size: 30px; color: darkgoldenrod;"> Symptoms</h1>
+        <h1>Most common symptoms :- 
+
+            fever.
+            dry cough.
+            tiredness.<br>
+
+            Less common symptoms :-
+            
+            aches and pains.
+            sore throat.
+            diarrhoea.
+            conjunctivitis.
+            headache.
+            loss of taste or smell.</h1>
+    <div style="width: 1200px;">  
+   
+      <!-- <div class="date" style="font-weight: bold;" >  
+       Date : {{currentDate}}
+      </div>
+        -->
+        <h1 style="font-size: 30px; color: darkgoldenrod;"> Here you can see complete Data  about Covid-19 </h1>
+
+        <!-- <p> Add Date into Bookmark in order to show the improvement or decline in the cases/situation <button  (click)="addBookmark()" style="color: blue;">Add Date</button></p> -->
+
+    <!-- <h1>For More Covid-19 Deatils in INDIA <button style="color: blue;" [routerLink]="'/india'">Press Here</button></h1> -->
+        <!-- <p>For graph <button style="color: blue;" [routerLink]="'/graph'">Press Here</button>
+    </p> -->
+
+
+      
+      <!-- <div class="same-row">  
+          <mat-form-field appearance="fill" style="width: 300px;">  
+              <mat-label>Choose a Country</mat-label>  
+              <mat-select [(value)]="selectedCountryData">  
+                  <mat-option *ngFor="let country of summaryData?.Countries" [value]="country">{{country.Country}}  
+                  </mat-option>  
+              </mat-select>  
+          </mat-form-field>  
+      </div>   -->
+    </div>  
+    <div style="margin-top: 10px;">  
+        <div class="same-row" style="width: 100%; border:3px solid #000">  
+            <div style="width:25%;float: left;padding: 20px; min-height: 100px;">
+            <mat-card class="covid-card" style="width: fit-content;">  
+                <mat-card-header>  
+                    <div mat-card-avatar>  
+                        <img  
+                            src="https://www.sanlam.co.uk/web/media/media/vectors%2018/globe_light_blue_rgb.png?width=32&height=32&mode=crop">  
+                    </div>  
+                    <mat-card-title>World wide Covid-19 Details</mat-card-title>  
+                    <mat-card-subtitle>Total Countries</mat-card-subtitle>  
+                </mat-card-header>  
+                <mat-card-content>  
+                    <table>  
+                        <tr>  
+                            <td>  
+                                New Recovered  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.NewRecovered | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Recovered  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.TotalRecovered | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                New Confirmed  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.NewConfirmed | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Confirmed  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.TotalConfirmed | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                New Deaths  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.NewDeaths | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Deaths  
+                            </td>  
+                            <td>  
+                                {{summaryData?.Global?.TotalDeaths | number}}  
+                            </td>  
+                        </tr>  
+                    </table>  
+                </mat-card-content>  
+            </mat-card>  
+            <!-- <h1 class="add"> Add Date into Bookmark in order to show the improvement or decline in the cases/situation <button  (click)="addBookmark()" style="color: blue;">Add Date</button></h1> -->
+                <h1 class="add"> Add Date into Bookmark in order to show the improvement or declie in the cases/situation <button type="button" class="btn btn-primary" >
+                    Add Date<span class="badge badge-light"  ></span>
+                  </button> </h1>
+        </div>
+        <div style="width:55%;float: right;padding: 10px;">
+            <app-graph></app-graph>
+        </div>
+        </div> 
+
+        <!-- <div class="same-row" style="width: 100%;">  
+            <div style="float: right;padding: 20px;width: 65%;">
+                <app-date> </app-date>  
+            </div> -->
+            
+           
+           
+            <p class="any" >Select Any Country to check Covid-19 Deatils </p>
+
+            <div class="parent">
+            <div style=" padding: 20px;width: 25%;" class="mat"> 
+                <mat-form-field appearance="fill" style="width: 300px;" >  
+                    <mat-label>Choose a Country</mat-label>  
+                    <mat-select [(value)]="selectedCountryData">  
+                        <mat-option *ngFor="let country of summaryData?.Countries" [value]="country">{{country.Country}}  
+                        </mat-option>  
+                    </mat-select>  
+                </mat-form-field>  
+            </div>
+            <!-- <p> Add Date into Bookmark in order to show the improvement or decline in the cases/situation <button  (click)="addBookmark()" style="color: blue;">Add Date</button></p> -->
+
+        </div>
+        
+        </div>  
+
+        <div class="same-row"  style="width: 100%; border:3px solid #000" *ngIf="selectedCountryData!=undefined">  
+            <div style="width:25%;float: left;padding: 20px; min-height: 80px;">
+         
+            <mat-card class="covid-card" style="width: fit-content;">  
+                <mat-card-header>  
+                    <div mat-card-avatar>  
+                        <img src="https://www.countryflags.io/{{selectedCountryData.CountryCode}}/shiny/32.png">  
+                    </div>  
+                    <mat-card-title>Country Summary</mat-card-title>  
+                    <mat-card-subtitle>{{selectedCountryData.Country}}</mat-card-subtitle>  
+                </mat-card-header>  
+                <mat-card-content>  
+                    <table>  
+                        <tr>  
+                            <td>  
+                                New Recovered  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.NewRecovered | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Recovered  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.TotalRecovered | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                New Confirmed  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.NewConfirmed | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Confirmed  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.TotalConfirmed | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                New Deaths  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.NewDeaths | number}}  
+                            </td>  
+                        </tr>  
+                        <tr>  
+                            <td>  
+                                Total Deaths  
+                            </td>  
+                            <td>  
+                                {{selectedCountryData?.TotalDeaths | number}}  
+                            </td>  
+                        </tr>  
+                    </table>  
+                </mat-card-content>  
+            </mat-card> 
+            <h1 class="add">For More Covid-19 Deatils in INDIA <button type="button" class="btn btn-primary" [routerLink]="'/india'">
+                Click Here<span class="badge badge-light"  ></span>
+              </button>  </h1>
+           
+              <!-- <button style="color: blue;" [routerLink]="'/india'">Press Here</button> -->
+        </div>
+            <div style="width:55%;float: right;padding: 10px;">
+             <app-gcountry [countryName]="selectedCountryData?.Slug" >
+                  </app-gcountry>
+                </div>
+        </div>  
+      </div>  
+
+
+      
+<!--     
+    <p> Add Date into Bookmark in order to show the improvement or decline in the cases/situation <button style="color: blue;">Add Date</button></p>
+
+    <p>For More Covid-19 Deatils in INDIA <button style="color: blue;" [routerLink]="'/india'">Press Here</button>
+        <p>For graph <button style="color: blue;" [routerLink]="'/graph'">Press Here</button>
+    </p> -->
+
+
+
+
+
+<!-- 
+
+<div class="footer">
+    <div class="copyright">All Copyrights © reserved</div>
+    <section class="herounit-mask">
+      <a href="https://www.facebook.com/">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.twitter.com/">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.youtube.com/">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.skype.com/">
+        <i class="fab fa-skype"></i>
+      </a>
+      <a href="https://www.linkedin.com/">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </section>
+  </div>
+
+
+
+
+ -->

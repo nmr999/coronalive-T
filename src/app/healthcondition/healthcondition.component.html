@@ -1,0 +1,206 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+
+<mat-toolbar>
+  <div class="color">
+<mat-toolbar-row>
+  <button mat-icon-button >
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+  </button>
+
+  <h1 style="text-align: left;" >Covid Tracker</h1>
+  <span class="menu-spacer"></span>
+  <div>
+      
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/dashboard'" routerLinkActive="active" > Home </a>
+
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" >Logout</a>
+
+</div>
+</mat-toolbar-row>
+</div>
+</mat-toolbar>
+
+<mat-sidenav-container class="side">
+<mat-sidenav #sidenav>
+  <mat-nav-list>
+
+    <a mat-list-item [routerLink]="'/ncomp'" routerLinkActive="active">Covid News </a>
+    <a mat-list-item [routerLink]="'/healthcondition'" routerLinkActive="active">Health Status</a>
+    <a mat-list-item [routerLink]="'/bookmark'" routerLinkActive="active"> Selected Date </a>
+    <a mat-list-item [routerLink]="'/'"routerLinkActive="disable"> Logout </a>
+    
+
+  </mat-nav-list>
+</mat-sidenav>
+  
+  
+  
+  
+  <!-- <mat-checkbox color="primary">fever</mat-checkbox> -->
+  <h2 style="text-align: center;color: red;">Tick The Symptoms</h2>
+  <section class="example-section" >
+    <form>
+      1. Do You Have Cough?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       </form>
+       <form>
+         <br>
+      2. Do You Have Fever?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       </form>
+       <form>
+        <br>
+
+       3.Are You Facing Any Diffculty In Breathing?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+       </form>
+       <form>
+        <br>
+
+       4.Have You Travelled Anywhere Internationally In The 14 Days?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+       </form>
+       <form>
+        <br>
+
+       5.Have You Interacted or Lived With Someone Who HAs Tested Positive For COVID-19?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+     </form>
+     <form>
+      <br>
+
+       6.Do you have breathing problem?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+     </form>
+     <form>
+      <br>
+
+       7.Loss of smell?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+     </form>
+     <form>
+      <br>
+
+      
+       8.Loss of taste?
+       <br/>
+       <input type="radio" name=" "/>Yes
+       <br/>
+       <input type="radio" name=" "/>No
+       <br/>
+     </form>
+     <br>
+
+  </section>
+
+<button style="color:rgb(11, 121, 11)">Submit</button>
+<button style="color: blue;"  [routerLink]="'/dashboard'">Go Back</button>
+
+
+
+<div class="footer">
+  <div class="copyright">All Copyrights © reserved</div>
+  <section class="herounit-mask">
+    <a href="https://www.facebook.com/">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.twitter.com/">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.youtube.com/">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://www.skype.com/">
+      <i class="fab fa-skype"></i>
+    </a>
+    <a href="https://www.linkedin.com/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </section>
+</div>
+ 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>healthcondition works!</p>
+
+<mat-checkbox color="primary">fever</mat-checkbox> 
+<h4>Tick The Symptoms</h4>
+<section class="example-section">
+    <h5>Do You Have Cough?</h5>
+    <mat-checkbox type="checkbox" class="example-margin">Yes</mat-checkbox>
+    <mat-checkbox class="example-margin">No</mat-checkbox>
+    <h5>Do You Have Fever?</h5>
+    <mat-checkbox class="example-margin">Yes</mat-checkbox>
+    <mat-checkbox class="example-margin">No</mat-checkbox>
+    <h5>Are You Facing Any Diffculty In Breathing?</h5>
+    <mat-checkbox class="example-margin">Yes</mat-checkbox>
+    <mat-checkbox class="example-margin">No</mat-checkbox>
+    <h5>Have You Travelled Anywhere Internationally In The 14 Days?</h5>
+    <mat-checkbox class="example-margin">Yes</mat-checkbox>
+    <mat-checkbox class="example-margin">No</mat-checkbox>
+    <h5>Have You Interacted or Lived With Someone Who HAs Tested Positive For COVID-19?</h5>
+    <mat-checkbox class="example-margin">Yes</mat-checkbox>
+    <mat-checkbox class="example-margin">No</mat-checkbox>
+  </section>
+  <button style="color:rgb(11, 121, 11)">Submit</button> -->
+
+

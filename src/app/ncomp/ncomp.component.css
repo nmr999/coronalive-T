@@ -1,0 +1,110 @@
+
+
+.mat-toolbar{
+    background-color: rgb(6, 99, 156);
+    
+   }
+   .mat-toolbar .mat-toolbar-row >h1{
+       margin-left:auto;
+       margin-right: auto;
+      
+   }
+   .color{
+       color: rgb(231, 231, 225);
+      
+   }
+   /* .side{
+    background-color:rgb(197, 236, 171);
+  
+  } */
+   a:hover{
+       cursor: pointer;
+       background-color:rgb(106, 216, 32);
+   }
+  
+  
+  .footer{
+      left: 0; bottom: 0; width: 100%;  background-color:rgb(126, 202, 247);
+        color:rgb(0, 0, 0); text-align: center; height:90px;
+        position: fixed
+    }
+    .menu-spacer {
+      flex: 1 1 auto;
+    }
+    .fa{
+      padding: 0.5em;
+    }
+    .copyright
+    {
+      padding-bottom: 1%
+    }
+    .herounit-mask
+    {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      text-decoration-style: none;
+    }
+    a{
+      text-decoration:none;
+      color: white;
+    }
+    i{
+      display: flex;
+      background: #e7e0ea;
+      height: 33px;
+      width: 33px;
+      margin: 0 10px;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0%;
+      text-decoration: none;
+      box-shadow: 6px 6px 10 px -1px rgba(0,0,0,0.15),
+      -6px -6px 10px -1px rgba(255,255,255,0.7);
+      font-size: 20px;
+      color: #777;
+      transition: transform 0.5s;
+    }
+    i:hover{
+      box-shadow:inset 4px 4px 6 px -1px rgba(0,0,0,0.2),
+      inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+      -0.5px -0.5px 0px rgba(255,255,255,1),
+      0.5px 0.5px 0px rgba(0,0,0,0.15),
+      0px 12px 10px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      transform: translateY(2px);
+    }
+    a:hover{
+      text-decoration: none;
+      color: white;
+    }
+    a:hover .fa-facebook
+    {
+     
+      color: #3b5998;
+    }
+    a:hover .fa-twitter
+    {
+      color: #00acee;
+    }
+    a:hover .fa-youtube
+    {
+      color: #f00;
+    }
+    a:hover .fa-skype
+    {
+      color: #00acee;
+    }
+    a:hover .fa-linkedin
+    {
+      color: #0e76a8;
+    }
+    .add:hover{
+      border-bottom: 3px solid black;
+    }
+    .add:hover{
+      border-bottom: 3px solid black;
+  }
+  
+    

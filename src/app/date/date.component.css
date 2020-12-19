@@ -1,0 +1,47 @@
+.col-3{
+    height:10vh;
+    margin-top:2vw ;
+}
+.float_left{
+    float: left;
+    width: 60%;
+    padding: 80px;
+}
+.width100{
+    width: 100%;
+}
+
+.width30{
+    width: 30% !important;
+}
+
+.margintop_272{
+    margin-top: 272px;
+}
+
+.mat-toolbar{
+    background-color: rgb(6, 99, 156);
+    
+   }
+   .mat-toolbar .mat-toolbar-row >h1{
+       margin-left:auto;
+       margin-right: auto;
+      
+   }
+   .color{
+       color: rgb(231, 231, 225);
+      
+   }
+   /* .side{
+    background-color:rgb(197, 236, 171);
+  
+  } */
+   a:hover{
+       cursor: pointer;
+       background-color:rgb(106, 216, 32);
+   }
+
+    
+    
+    
+
