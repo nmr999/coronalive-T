@@ -31,10 +31,6 @@ export class DashboardComponent implements OnInit {
     let date = new Date();  
     this.currentDate = this.datePipe.transform(date,'dd-MMM-yyyy');  
     this.getAllData();  
-
-
-
-    
   }  
   
   getAllData() {  

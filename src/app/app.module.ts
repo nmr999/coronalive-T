@@ -43,7 +43,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';  
 import { MatNativeDateModule } from '@angular/material/core';  
 import { MatCheckboxModule } from '@angular/material/checkbox';  
-import { MatSelectModule } from '@angular/material/select';   
+import { MatSelectModule } from '@angular/material/select';
+import { HomeComponent } from './home/home.component';   
 
 
 
@@ -60,7 +61,8 @@ import { MatSelectModule } from '@angular/material/select';
     GcountryComponent,
     DateComponent,
     DashboardComponent,
-    BookmarkComponent
+    BookmarkComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,21 @@
     width: 60%;
     padding: 80px;
 }
+
+/* parentchild */
+
+.parent{
+    display: flex;
+    flex-direction: row;
+    /* margin-left: 700px; */
+
+  }
+
+  .child1{
+    margin-top: 70px;
+  }
+
+
 .width100{
     width: 100%;
 }
@@ -45,6 +60,30 @@
     font-size: 150%;
     margin-top: 25px;
     text-align: left;
+  }
+
+
+  table {  
+    padding: 20px;  
+    width: 700px;  
+    text-align: center;
+    border: 2px solid rgb(146, 16, 16);  
+    background-color: rgb(222, 226, 160);  
+}  
+  
+  tr {  
+    margin: 10px;  
+    padding: 10px; 
+    /* background-color: rgb(24, 41, 116);   */
+    /* background-color: rgb(222, 226, 160);   */
+  
+  }  
+  
+  td {  
+    height: 30px;  
+    vertical-align: center;  
+    border: 1px dotted rgb(19, 14, 16); 
+     
   }
     
     

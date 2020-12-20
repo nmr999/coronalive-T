@@ -44,8 +44,9 @@
 
 
 
-
-
+<button type="button" class="btn btn-primary" style="float: right; margin-top: 20px; "  [routerLink]="'/india'">
+  Go Back <span class="badge badge-light"  ></span>
+</button> 
 
 
 
@@ -63,7 +64,7 @@
 <div class="row margin-class width100">  
   <div class="float_left width30">     
     <label>  
-      <h5><span class="badge badge-secondary" >Choose first Date</span></h5>  
+      <h5><span class="badge badge-warning" style="font-size: medium;" >Choose first Date</span></h5>  
     </label>  
     <label>  </label>  
     <input matInput [matDatepicker]="datevalue" name="datevalue" [(ngModel)]="date" placeholder="Choose a date"  
@@ -77,7 +78,7 @@
   <div class="float_left width30">  
    
     <label>  
-      <h5><span class="badge badge-secondary">Choose second Date</span></h5>  
+      <h5><span class="badge badge-warning" style="font-size: medium;">Choose second Date</span></h5>  
     </label>  
     <label>  </label>  
     <input matInput [matDatepicker]="datevalue2" name="datevalue2" [(ngModel)]="date2" placeholder="Choose a date"  
@@ -95,6 +96,10 @@
   <div class="col-6 ">  
      
   </div>  
+
+  <div class="parent" style="width: 100%; border:3px solid #000">
+    <div class="child1">
+
   <div class="float_left width30 " class="any" *ngIf="!isMobileVersion">  
       
     <mat-form-field appearance="fill" style="width: 300px;">  
@@ -104,70 +109,79 @@
         </mat-option>  
       </mat-select>  
     </mat-form-field> 
-    <div class="container1">
-    <div class="row margin-class" style="margin: 5px;">  
-    </div>  
-    <div *ngIf="selectedState!=null">  
-      <div class="row margin-class">  
-        <div>  
-          <h6>State :  </h6>  
-        </div>  
-        <div>  
-          <h5><span class="badge badge-secondary"> {{stateName}}</span></h5>  
-        </div>  
-      </div>  
-  
-      <div class="row margin-class">  
-        <div>  
-          <h6>As on Date :  </h6>  
-        </div>  
-        <div>  
-          <h6><span class="badge badge-secondary">{{date |date}}</span></h6>  
-        </div>  
-      </div>  
-  
-      <h6>Population : {{population | number}}</h6>  
-  
-      <div class="row margin-class">  
-        <div>  
-          <h6>Tested : {{totalTested | number}} </h6>  
-        </div>  
-        <div *ngIf="deltaTested != undefined && deltaTested > 0">  
-          <h6><span class="badge badge-info"> + {{deltaTested}}</span></h6>  
-        </div>  
-      </div>  
-  
-      <div class="row margin-class">  
-        <div>  
-          <h6>Confirmed : {{totalConfirmed | number}} </h6>  
-        </div>  
-        <div *ngIf="deltaConfirmed != undefined && deltaTested > 0">  
-          <h6><span class="badge badge-warning"> + {{deltaConfirmed | number}}</span></h6>  
-        </div>  
-      </div>  
-  
-      <div class="row margin-class">  
-        <div>  
-          <h6>Recovered : {{totalRecovered | number}} </h6>  
-        </div>  
-        <div *ngIf="deltaRecovered != undefined && deltaRecovered > 0">  
-          <h6><span class="badge badge-success"> + {{deltaRecovered | number}}</span></h6>  
-        </div>  
-      </div>  
-  
-      <div class="row margin-class">  
-        <div>  
-          <h6>Deceased : {{totalDeceased | number}} </h6>  
-        </div>  
-        <div *ngIf="deltaDeceased != undefined && deltaDeceased > 0">  
-          <h6><span class="badge badge-danger"> + {{deltaDeceased | number}}</span></h6>  
-        </div>  
-      </div>  
-  
-      <h6>Migrated : {{totalMigrated | number}} </h6>  
-    </div> 
-    </div>
-  </div>
+
+
+
+<mat-card class="covid-card" style="width: fit-content;">  
+  <mat-card-header>  
+      
+      <mat-card-title>{{stateName}}</mat-card-title>  
+      <mat-card-subtitle>As on Date : {{date |date}}</mat-card-subtitle>  
+  </mat-card-header>  
+  <mat-card-content>  
+      <table>  
+          <tr>  
+              <td>  
+                  Population  
+              </td>  
+              <td>  
+                {{population | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Tested  
+              </td>  
+              <td>  
+                {{totalTested | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                 Confirmed  
+              </td>  
+              <td>  
+                {{totalConfirmed | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Recovered
+              </td>  
+              <td>  
+                {{totalRecovered | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Deceased
+              </td>  
+              <td>  
+                {{totalDeceased | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Migrated  
+              </td>  
+              <td>  
+                {{totalMigrated | number}}  
+              </td>  
+          </tr>  
+      </table>  
+  </mat-card-content>  
+</mat-card> 
+</div>
+
+
+
+
+
+
+
+    <div class="child2" style="width:55%;float: right;padding: 50px; margin-top: 18px;">
+
+   
     <div class="float_left width30" *ngIf="!isMobileVersion">  
       
       <mat-form-field id="ddl2" appearance="fill" style="width: 300px;">  
@@ -177,85 +191,328 @@
           </mat-option>  
         </mat-select>  
       </mat-form-field> 
-      <div class="container1">
-      <div class="row margin-class" style="margin: 5px;">  
-      </div>  
-      <div *ngIf="selectedState2!=null">  
-        <div class="row margin-class">  
-          <div>  
-            <h6>State :  </h6>  
-          </div>  
-          <div>  
-            <h5><span class="badge badge-secondary"> {{stateName2}}</span></h5>  
-          </div>  
-        </div>  
+
+
+
+<mat-card class="covid-card" style="width: fit-content;">  
+  <mat-card-header>  
+      
+      <mat-card-title>{{stateName2}}</mat-card-title>  
+      <mat-card-subtitle>As on Date : {{date2 |date}}</mat-card-subtitle>  
+  </mat-card-header>  
+  <mat-card-content>  
+      <table>  
+          <tr>  
+              <td>  
+                  Population  
+              </td>  
+              <td>  
+                {{population2 | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Tested  
+              </td>  
+              <td>  
+                {{totalTested2 | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                 Confirmed  
+              </td>  
+              <td>  
+                {{totalConfirmed2 | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Recovered
+              </td>  
+              <td>  
+                {{totalRecovered2 | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Deceased
+              </td>  
+              <td>  
+                {{totalDeceased2 | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Migrated  
+              </td>  
+              <td>  
+                {{totalMigrated2 | number}}  
+              </td>  
+          </tr>  
+      </table>  
+  </mat-card-content>  
+</mat-card> 
+
+
+    </div>    
+    </div>
+
+
     
-        <div class="row margin-class">  
-          <div>  
-            <h6>As on Date :  </h6>  
-          </div>  
-          <div>  
-            <h6><span class="badge badge-secondary">{{date2 |date}}</span></h6>  
-          </div>  
-        </div>  
-    
-        <h6>Population : {{population2 | number}}</h6>  
-    
-        <div class="row margin-class">  
-          <div>  
-            <h6>Tested : {{totalTested2 | number}} </h6>  
-          </div>  
-          <div *ngIf="deltaTested != undefined && deltaTested > 0">  
-            <h6><span class="badge badge-info"> + {{deltaTested2}}</span></h6>  
-          </div>  
-        </div>  
-    
-        <div class="row margin-class">  
-          <div>  
-            <h6>Confirmed : {{totalConfirmed2 | number}} </h6>  
-          </div>  
-          <div *ngIf="deltaConfirmed != undefined && deltaTested > 0">  
-            <h6><span class="badge badge-warning"> + {{deltaConfirmed2 | number}}</span></h6>  
-          </div>  
-        </div>  
-    
-        <div class="row margin-class">  
-          <div>  
-            <h6>Recovered : {{totalRecovered2 | number}} </h6>  
-          </div>  
-          <div *ngIf="deltaRecovered != undefined && deltaRecovered > 0">  
-            <h6><span class="badge badge-success"> + {{deltaRecovered2 | number}}</span></h6>  
-          </div>  
-        </div>  
-    
-        <div class="row margin-class">  
-          <div>  
-            <h6>Deceased : {{totalDeceased2 | number}} </h6>  
-          </div>  
-          <div *ngIf="deltaDeceased != undefined && deltaDeceased > 0">  
-            <h6><span class="badge badge-danger"> + {{deltaDeceased2 | number}}</span></h6>  
-          </div>  
-        </div>  
-    
-        <h6>Migrated : {{totalMigrated2 | number}} </h6>  
-      </div>
-  </div>  
-</div>  
-  <div class="float_left width30" style="float: right; width: 10% !important; margin-top: 195px; " *ngIf="!isMobileVersion">  
+
+
+
+
+
+
+  <div class="float_left width30"   *ngIf="!isMobileVersion">  
       
     <div class="container1">
-    <div class="row margin-class" style="margin: 5px;">  
+    <div  style="margin: 5px;">  
     </div>  
     <div *ngIf="selectedState2!=null && selectedState!=null">  
-      <div class="row margin-class">  
-        
-      </div>  
+      
+
+<mat-card class="covid-card" style="width: fit-content;">  
+  <mat-card-header>  
+      
+      <mat-card-title>Comparison of {{stateName}} with {{stateName2}}</mat-card-title>  
+      <mat-card-subtitle>As on Date : {{date |date}}</mat-card-subtitle>  
+  </mat-card-header>  
+  <mat-card-content>  
+      <table>  
+          <tr>  
+              <td>  
+                  Population  
+              </td>  
+              <td>  
+                {{resultpopulation | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Tested  
+              </td>  
+              <td>  
+                {{resulttotalTested | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                 Confirmed  
+              </td>  
+              <td>  
+                {{resulttotalConfirmed | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Recovered
+              </td>  
+              <td>  
+                {{resulttotalRecovered | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Deceased
+              </td>  
+              <td>  
+                {{resulttotalDeceased | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Migrated  
+              </td>  
+              <td>  
+                {{resulttotalMigrated | number}}  
+              </td>  
+          </tr>  
+      </table>  
+  </mat-card-content>  
+</mat-card> 
   
-      <div class="row margin-class">  
-        
-      </div>  
+      </div>
+  </div>
+</div>
+
+
+
+<!-- <button type="button" class="btn btn-primary" style="float: right; margin-top: 20px; "  [routerLink]="'/dashboard'">
+  Go Back <span class="badge badge-light"  ></span>
+</button>  -->
   
-      <h6>Population : {{resultpopulation | number}}</h6>  
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //colum view -->
+<!-- <div class="container1">
+  <div class="row margin-class" style="margin: 5px;">  
+  </div>  
+  <div *ngIf="selectedState!=null">  
+    <div class="row margin-class">  
+      <div>  
+        <h6>State :  </h6>  
+      </div>  
+      <div>  
+        <h5><span class="badge badge-secondary"> {{stateName}}</span></h5>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>As on Date :  </h6>  
+      </div>  
+      <div>  
+        <h6><span class="badge badge-secondary">{{date |date}}</span></h6>  
+      </div>  
+    </div>  
+
+    <h6>Population : {{population | number}}</h6>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Tested : {{totalTested | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaTested != undefined && deltaTested > 0">  
+        <h6><span class="badge badge-info"> + {{deltaTested}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Confirmed : {{totalConfirmed | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaConfirmed != undefined && deltaTested > 0">  
+        <h6><span class="badge badge-warning"> + {{deltaConfirmed | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Recovered : {{totalRecovered | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaRecovered != undefined && deltaRecovered > 0">  
+        <h6><span class="badge badge-success"> + {{deltaRecovered | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Deceased : {{totalDeceased | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaDeceased != undefined && deltaDeceased > 0">  
+        <h6><span class="badge badge-danger"> + {{deltaDeceased | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <h6>Migrated : {{totalMigrated | number}} </h6>  
+  </div> 
+  </div>
+</div> -->
+
+
+
+<!-- 2nd colum view -->
+<!-- <div class="container1">
+  <div class="row margin-class" style="margin: 5px;">  
+  </div>  
+  <div *ngIf="selectedState2!=null">  
+    <div class="row margin-class">  
+      <div>  
+        <h6>State :  </h6>  
+      </div>  
+      <div>  
+        <h5><span class="badge badge-secondary"> {{stateName2}}</span></h5>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>As on Date :  </h6>  
+      </div>  
+      <div>  
+        <h6><span class="badge badge-secondary">{{date2 |date}}</span></h6>  
+      </div>  
+    </div>  
+
+    <h6>Population : {{population2 | number}}</h6>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Tested : {{totalTested2 | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaTested != undefined && deltaTested > 0">  
+        <h6><span class="badge badge-info"> + {{deltaTested2}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Confirmed : {{totalConfirmed2 | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaConfirmed != undefined && deltaTested > 0">  
+        <h6><span class="badge badge-warning"> + {{deltaConfirmed2 | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Recovered : {{totalRecovered2 | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaRecovered != undefined && deltaRecovered > 0">  
+        <h6><span class="badge badge-success"> + {{deltaRecovered2 | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <div class="row margin-class">  
+      <div>  
+        <h6>Deceased : {{totalDeceased2 | number}} </h6>  
+      </div>  
+      <div *ngIf="deltaDeceased != undefined && deltaDeceased > 0">  
+        <h6><span class="badge badge-danger"> + {{deltaDeceased2 | number}}</span></h6>  
+      </div>  
+    </div>  
+
+    <h6>Migrated : {{totalMigrated2 | number}} </h6>  
+  </div>
+</div>  
+</div>   -->
+
+
+<!-- result view -->
+<!-- <h6>Population : {{resultpopulation | number}}</h6>  
   
       <div class="row margin-class">  
         <div>  
@@ -295,73 +552,4 @@
   
       <h6>Migrated : {{resulttotalMigrated | number}} </h6>  
     </div>
-    </div>
-  </div>
-</div>
-  
-
-
-<!-- 
-
-<mat-card class="covid-card" style="width: fit-content;">  
-  <mat-card-header>  
-      <div mat-card-avatar>  
-          <img src="https://www.countryflags.io/{{selectedCountryData.CountryCode}}/shiny/32.png">  
-      </div>  
-      <mat-card-title>Cou</mat-card-title>  
-      <mat-card-subtitle>As on Date : {{date |date}}</mat-card-subtitle>  
-  </mat-card-header>  
-  <mat-card-content>  
-      <table>  
-          <tr>  
-              <td>  
-                  New Recovered  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.NewRecovered | number}}  
-              </td>  
-          </tr>  
-          <tr>  
-              <td>  
-                  Total Recovered  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.TotalRecovered | number}}  
-              </td>  
-          </tr>  
-          <tr>  
-              <td>  
-                  New Confirmed  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.NewConfirmed | number}}  
-              </td>  
-          </tr>  
-          <tr>  
-              <td>  
-                  Total Confirmed  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.TotalConfirmed | number}}  
-              </td>  
-          </tr>  
-          <tr>  
-              <td>  
-                  New Deaths  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.NewDeaths | number}}  
-              </td>  
-          </tr>  
-          <tr>  
-              <td>  
-                  Total Deaths  
-              </td>  
-              <td>  
-                  {{selectedCountryData?.TotalDeaths | number}}  
-              </td>  
-          </tr>  
-      </table>  
-  </mat-card-content>  
-</mat-card> 
- -->
+    </div> -->
