@@ -63,7 +63,7 @@
 <div class="row margin-class width100">  
   <div class="float_left width30">     
     <label>  
-      <h5><span class="badge badge-secondary">Choose first Date</span></h5>  
+      <h5><span class="badge badge-secondary" >Choose first Date</span></h5>  
     </label>  
     <label>  </label>  
     <input matInput [matDatepicker]="datevalue" name="datevalue" [(ngModel)]="date" placeholder="Choose a date"  
@@ -95,7 +95,7 @@
   <div class="col-6 ">  
      
   </div>  
-  <div class="float_left width30 " *ngIf="!isMobileVersion">  
+  <div class="float_left width30 " class="any" *ngIf="!isMobileVersion">  
       
     <mat-form-field appearance="fill" style="width: 300px;">  
       <mat-label>Choose your first state from here</mat-label>  
@@ -301,3 +301,67 @@
   
 
 
+<!-- 
+
+<mat-card class="covid-card" style="width: fit-content;">  
+  <mat-card-header>  
+      <div mat-card-avatar>  
+          <img src="https://www.countryflags.io/{{selectedCountryData.CountryCode}}/shiny/32.png">  
+      </div>  
+      <mat-card-title>Cou</mat-card-title>  
+      <mat-card-subtitle>As on Date : {{date |date}}</mat-card-subtitle>  
+  </mat-card-header>  
+  <mat-card-content>  
+      <table>  
+          <tr>  
+              <td>  
+                  New Recovered  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.NewRecovered | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Recovered  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.TotalRecovered | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  New Confirmed  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.NewConfirmed | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Confirmed  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.TotalConfirmed | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  New Deaths  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.NewDeaths | number}}  
+              </td>  
+          </tr>  
+          <tr>  
+              <td>  
+                  Total Deaths  
+              </td>  
+              <td>  
+                  {{selectedCountryData?.TotalDeaths | number}}  
+              </td>  
+          </tr>  
+      </table>  
+  </mat-card-content>  
+</mat-card> 
+ -->

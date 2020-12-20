@@ -10,6 +10,8 @@ import { DataService } from '../data.service';
 import { DatePipe } from '@angular/common';  
 import {HttpClient} from '@angular/common/http';
 import {Bookmark} from '../bookmark';
+import { RegistrationService } from 'src/app/registration.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -23,7 +25,7 @@ export class DashboardComponent implements OnInit {
   currentDate:any;  
   gd : GlobalData
   
-  constructor(private service: DataService, private datePipe: DatePipe, private _http: HttpClient) { }  
+  constructor(private _auth :RegistrationService,private service: DataService, private datePipe: DatePipe, private _http: HttpClient) { }  
   
   ngOnInit() {  
     let date = new Date();  

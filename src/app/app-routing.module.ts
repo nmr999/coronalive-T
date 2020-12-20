@@ -28,18 +28,18 @@ const routes: Routes = [
   },
   {
   path:'dashboard',
-  component:DashboardComponent
-  //canActivate:[AuthGuard]
+  component:DashboardComponent,
+  canActivate:[AuthGuard]
 },
   {
   path:'healthcondition',
-  component:HealthconditionComponent
-  //canActivate:[AuthGuard]
+  component:HealthconditionComponent,
+  canActivate:[AuthGuard]
   },
   {
     path:'ncomp',
-    component:NcompComponent
-    //canActivate:[AuthGuard]
+    component:NcompComponent,
+    canActivate:[AuthGuard]
 
   },
   {

@@ -36,7 +36,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
-// import {AuthGuard} from 'src/app/auth.guard';
+import {AuthGuard} from 'src/app/auth.guard';
 //import {MaterialModule} from '@angular/material';
 //import { MaterialModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';  
@@ -98,7 +98,7 @@ import { MatSelectModule } from '@angular/material/select';
 
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

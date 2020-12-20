@@ -7,16 +7,12 @@ import {RegistrationService} from 'src/app/registration.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth:RegistrationService, private router : Router ){ }
+  constructor(private _auth:RegistrationService, private _router : Router ){ }
   canActivate():boolean{
-    if(this.auth.loggedin()){
+    if(this._auth.loggedin()){
       return true
-    }
-    else{
-      this.router.navigate(['/login'])
+    }else{
+     this._router.navigate(['/login'])
       return false
-    }
+    }}
   }
-    
-  }
-  
