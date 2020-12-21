@@ -31,7 +31,7 @@ export class RegistrationService {
   
   public loginUserFromRemote(user :User):Observable<any> {
 
-    return this._http.post<any>(this._loginUrl, user  )
+    return this._http.post<any>(this._loginUrl, user );
   }
  
  public registerUserFromRemote(user :User):Observable<any>{
@@ -41,6 +41,7 @@ export class RegistrationService {
   }
   loggedin(){
     return !!localStorage.getItem('token')
+
   }
   logoutUser(){
     localStorage.removeItem('token')

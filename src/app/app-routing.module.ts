@@ -12,26 +12,36 @@ import { NcompComponent } from './ncomp/ncomp.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {AuthGuard} from 'src/app/auth.guard';
 import { HomeComponent } from './home/home.component';
+import {PostGuard} from 'src/app/post.guard';
+
+
+import { ProfileComponent } from './profile/profile.component';   
+
+
 const routes: Routes = [
 
   {
     path:"",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[PostGuard]
+
     
   },
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[PostGuard]
+
   },
   {
     path:"login",
     component:LoginComponent,
-    canActivate:[AuthGuard]
+    canActivate:[PostGuard]
   },
   {
     path:'register',
     component:RegistrationComponent,
-    canActivate:[AuthGuard]
+    canActivate:[PostGuard]
 
   },
   {
@@ -52,8 +62,8 @@ const routes: Routes = [
   },
   {
   path:'india',
-  component:IndiaComponent
- // canActivate:[AuthGuard]
+  component:IndiaComponent,
+  canActivate:[AuthGuard]
 
   },
   {
@@ -79,6 +89,10 @@ const routes: Routes = [
     component:BookmarkComponent
    // canActivate:[AuthGuard]
 
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   }
 
 ];

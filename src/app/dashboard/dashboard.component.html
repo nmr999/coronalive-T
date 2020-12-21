@@ -16,6 +16,8 @@
 
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button  routerLinkActive="active" routerLink ='/profile' > Profile </a>
+
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedin()" 
     (click)="_auth.logoutUser()" style="font-size: 18px;" >Logout</a>
 

@@ -37,6 +37,8 @@ import { DatePipe } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {AuthGuard} from 'src/app/auth.guard';
+import {PostGuard} from 'src/app/post.guard';
+
 //import {MaterialModule} from '@angular/material';
 //import { MaterialModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';  
@@ -44,7 +46,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';  
 import { MatCheckboxModule } from '@angular/material/checkbox';  
 import { MatSelectModule } from '@angular/material/select';
-import { HomeComponent } from './home/home.component';   
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';   
 
 
 
@@ -62,7 +65,8 @@ import { HomeComponent } from './home/home.component';
     DateComponent,
     DashboardComponent,
     BookmarkComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,7 @@ import { HomeComponent } from './home/home.component';
 
     
   ],
-  providers: [DatePipe,AuthGuard],
+  providers: [DatePipe,AuthGuard,PostGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
