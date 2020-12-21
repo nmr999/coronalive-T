@@ -1,8 +1,16 @@
 .covid-card{
-    /* margin-top: 45px; */
-    position: relative;
+    margin-top: 165px;
+    /* position: relative; */
+}
+.add{
+  margin-top: 75px;
+  margin-left: 75px;
 }
 
+.a:hover{
+  cursor: pointer;
+  background-color:rgb(106, 216, 32);
+}
   table {  
     padding: 20px;  
     width: 700px;  
@@ -17,7 +25,10 @@
     /* background-color: rgb(24, 41, 116);   */
     /* background-color: rgb(222, 226, 160);   */
   
-  }  
+  } 
+  .example-span{
+    margin-right: 140vh;
+  } 
   
   td {  
     height: 30px;  

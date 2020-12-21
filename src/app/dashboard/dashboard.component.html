@@ -12,6 +12,8 @@
   <h1 style="text-align: left;" >Covid Tracker</h1>
   <span class="menu-spacer"></span>
   <div>
+    <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/india'" routerLinkActive="active" > INDIA </a>
+
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/ncomp'" routerLinkActive="active" > Covid News </a>
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/healthcondition'" routerLinkActive="active" >  Health Status</a>
     <a style="text-decoration: none; color: white; font-size: large;" mat-button [routerLink]="'/'" routerLinkActive="active" class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedin()" 
